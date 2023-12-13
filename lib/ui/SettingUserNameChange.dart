@@ -107,7 +107,7 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                         child:const Text('更新',style: TextStyle(fontSize: 28),),
                         onPressed: (){
                           setState(() {
-                            AllUserData aud = AllUserData();
+                            AllUserData aud = AllUserData(username: AllUserData.sUserName);
                             aud.changeUserName(widget.UserName,afterName);
                           });
                           Navigator.of(context).pop();

@@ -98,7 +98,7 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
                         onPressed: (){
                           setState(() {
                             if(widget.UserName == UN && Agree == true){
-                              AllUserData aud = AllUserData();
+                              AllUserData aud = AllUserData(username: AllUserData.sUserName);
                               aud.deleteUserName(widget.UserName);
                             }else{
                               //エラーメッセが欲しいけど今出す場所ない
