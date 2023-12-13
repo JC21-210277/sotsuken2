@@ -17,6 +17,11 @@ class MyApp extends StatelessWidget{
         theme: ThemeData(
           primaryColor: Colors.blue,
         ),
+        routes: {
+          'ChooseUser_page':(context){
+            return const StateChooseUser();
+          }
+        },
         home: Home_Page_State()
     );
   }
@@ -91,11 +96,7 @@ class Home_Page extends State<Home_Page_State>{
                           ),
                           child: const Text('食品',style: TextStyle(fontSize: 30),),
                           onPressed: (){
-                            Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context){
-                                return const StateChooseUser();
-                              }),
-                            );
+                            Navigator.pushNamed(context, 'ChooseUser_page');
                             setState(() {
                               AllUserData aud = AllUserData();
                               switch (aud.getUserNames().length) {

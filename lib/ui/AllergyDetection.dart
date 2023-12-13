@@ -112,7 +112,7 @@ class AllergyDetection_Page extends State<StateAllergyDetection>{
                             ),
                           ),
                           onPressed: (){
-
+                            Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
                           },
                           child: const FittedBox(
                             child:Text('他のユーザー\nを選択する',
