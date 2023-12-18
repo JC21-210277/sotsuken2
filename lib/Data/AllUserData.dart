@@ -21,9 +21,6 @@ class AllUserData{
     username = "";
   }
 
-
-
-
   Map<String, dynamic> toMap() =>{
     "username":username,
   };
@@ -72,4 +69,5 @@ class AllUserData{
   }
 //indexで誰の情報か紐づけで持ってくる
 //後でdeleteもほしいね
+
 }

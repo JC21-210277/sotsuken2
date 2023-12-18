@@ -107,11 +107,11 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                       margin:const EdgeInsets.fromLTRB(15, 0, 15, 40),
                       child:ElevatedButton(
                           child:const Text('登録',style:TextStyle(fontSize:30,fontWeight: FontWeight.bold)),
-                          onPressed:(){
-                            _insertUser();
+                          onPressed:() {
                             AllUserData aud = AllUserData(username: AllUserData.sUserName);
                             AllObligationData aod = AllObligationData();
                             AllRecommendationData ard = AllRecommendationData();
+                            _insertUser();
                             setState(() {
                               aud.setUserNameFinal();
                               aod.AllResetObligation();
@@ -126,7 +126,6 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                 ]
             )
         ),
-
       ),
     );
   }

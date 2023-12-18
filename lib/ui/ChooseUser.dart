@@ -1,5 +1,9 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+
+import '../DB/db_provider.dart';
 import 'CreateUser1.dart';
 import 'Obligation_allergy.dart';
 import 'SettingUser1.dart';
@@ -20,8 +24,11 @@ String valueName2 = "";
 String valueName3 = "";
 String valueName4 = "";
 String valueName5 = "";
+List<String> alluser = [];
 
 class ChooseUser_Page extends State<StateChooseUser>{
+
+  final dbProvider = DBProvider.instance;
 
   void ReturnAndReload(int n) async{
     if(n == 0){
@@ -37,16 +44,14 @@ class ChooseUser_Page extends State<StateChooseUser>{
           })
       );
     }
-    setState(() {
+    setState(() async {
 
       AllUserData aud = AllUserData(username: AllUserData.sUserName);
       int aaa = aud.getUserNames().length;
       debugPrint(aaa.toString());
-      valueName1 = "";
-      valueName2 = "";
-      valueName3 = "";
-      valueName4 = "";
-      valueName5 = "";
+      debugPrint("user名を取得します");
+
+
       for(int n = 1; n <= aud.getUserNames().length;n++){
         switch (n){
           case 5 :

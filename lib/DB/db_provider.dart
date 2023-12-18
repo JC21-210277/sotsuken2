@@ -25,7 +25,7 @@ class DBProvider {
   Future<Database> _initDatabase() async {
     debugPrint("_initDatabaseにきました");
     Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, 'test10.db');
+    String path = join(documentDirectory.path, 'test11.db');
     return await openDatabase(
       path,
       version: 1,
@@ -336,6 +336,13 @@ class DBProvider {
     debugPrint("insertUserにきました");
     Database db = await instance.database;
     return await db.insert('user', row.toMap());
+  }
+
+    // ユーザ全件取得
+  Future<List<Map<String, dynamic>>> queryAllRows() async {
+    debugPrint('queryAllRowsにきました');
+    Database db = await instance.database; //DBにアクセスする
+    return await db.query('user'); //全件取得
   }
 
 }
