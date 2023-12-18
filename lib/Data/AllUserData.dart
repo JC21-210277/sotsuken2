@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-//import 'package:sotsuken2/CreateUser1.dart';
-//import 'package:sotsuken2/CreateUser2.dart';
 import 'package:sotsuken2/ui/ChooseUser.dart';
 
 import '../DB/db_provider.dart';
@@ -33,6 +31,8 @@ class AllUserData{
   );
   //一時的に保持するとこ
   static String sUserName = "";
+  static String bName = "";
+  static String aName = "";
 
   //臨時
   static List<String> UserNameList = [];
@@ -58,7 +58,6 @@ class AllUserData{
     sUserName = "";
     return UserNameList;
   }
-
 
   void deleteUserName(String name){
     UserNameList.remove(name);

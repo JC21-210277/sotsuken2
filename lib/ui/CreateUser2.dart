@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sotsuken2/Data/AllRecommendationData.dart';
-import 'package:sotsuken2/ui/CreateUserCheck.dart';
-
-import 'Obligation_allergy.dart';
-import 'ChooseUser.dart';
 import 'CreateUserCheck.dart';
+import 'Obligation_allergy.dart';
+import 'Another_ingredient.dart';
 
-import 'package:sotsuken2/Data/AllUserData.dart';
+import 'package:sotsuken2/Data/AllRecommendationData.dart';
 import 'package:sotsuken2/Data/AllObligationData.dart';
 
 class StateCreateUser2 extends StatefulWidget{
@@ -99,7 +96,7 @@ class CreateUser2_Page extends State<StateCreateUser2> {
                           onPressed: (){
                             Navigator.of(context).push(
                                 MaterialPageRoute(builder: (context){
-                                  return CheckBoxT(PageFlag : 1);
+                                  return const StateObligation_allergy(PageFlag : 1);
                                 })
                             );
                             AllObligationData aod = AllObligationData();
@@ -134,7 +131,13 @@ class CreateUser2_Page extends State<StateCreateUser2> {
                             style: TextStyle(fontSize: 25,color:Colors.indigo,fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context){
+                                return const StateAnother_ingredient(PageFlag:1);
+                              })
+                            );
+                          },
                         )
                     ),
                     Container(
@@ -150,7 +153,7 @@ class CreateUser2_Page extends State<StateCreateUser2> {
                         padding:const EdgeInsets.all(5),
                         child:ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Colors.indigo
+                              backgroundColor: Colors.indigo
                           ),
                           child:const Text('登録内容を確認',style: TextStyle(fontSize: 28)),
                           onPressed: (){

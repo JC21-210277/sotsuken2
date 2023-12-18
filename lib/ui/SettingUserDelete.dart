@@ -34,7 +34,7 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
                     color:Colors.red,
                     child:const Text('ユーザーの削除',
                       style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 28,
                           color:Colors.white,
                           fontWeight: FontWeight.bold
                       ),
@@ -104,9 +104,8 @@ class SettingUserDelete extends State<StateSettingUserDelete>{
                               //エラーメッセが欲しいけど今出す場所ない
                             }
                           });
-                          Navigator.pop(context);
-                          Navigator.pop(context);
-                          Navigator.of(context).pop();
+                          //ユ－ザー選択画面(ChooseUser)
+                          Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
                         },
                       )
                   ),

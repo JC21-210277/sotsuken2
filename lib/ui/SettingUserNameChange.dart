@@ -28,15 +28,17 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                 children:[
                   Container(
                     margin:const EdgeInsets.fromLTRB(0, 10, 0, 30),
-                    padding:const EdgeInsets.fromLTRB(30, 10, 30, 10),
+                    padding:const EdgeInsets.fromLTRB(20, 12, 20, 12),
                     color:Colors.deepOrange,
-                    child:const Text('ユーザー名の変更',
-                      style: TextStyle(
-                          fontSize: 30,
-                          color:Colors.white,
-                          fontWeight: FontWeight.bold
+                    child:const FittedBox(
+                      child:Text('ユーザー名の変更',
+                        style: TextStyle(
+                            fontSize: 28,
+                            color:Colors.white,
+                            fontWeight: FontWeight.bold
+                        ),
                       ),
-                    ),
+                    )
                   ),
 
                   Container(
@@ -110,9 +112,8 @@ class SettingUserNameChange extends State<StateSettingUserNameChange>{
                             AllUserData aud = AllUserData(username: AllUserData.sUserName);
                             aud.changeUserName(widget.UserName,afterName);
                           });
-                          Navigator.of(context).pop();
-                          Navigator.of(context).pop();
-                          Navigator.of(context).pop();
+                          //ユ－ザー選択画面(ChooseUser)
+                          Navigator.popUntil(context,ModalRoute.withName('ChooseUser_page'));
                         },
                       )
                   ),
