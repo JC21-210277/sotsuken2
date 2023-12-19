@@ -98,7 +98,7 @@ class Home_Page extends State<Home_Page_State>{
                           onPressed: (){
                             Navigator.pushNamed(context, 'ChooseUser_page');
                             setState(() {
-                              AllUserData aud = AllUserData();
+                              AllUserData aud = AllUserData(username: AllUserData.sUserName);
                               switch (aud.getUserNames().length) {
                                 case 5 :
                                   valueName5 = aud.getUserNames()[4];

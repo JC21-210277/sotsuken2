@@ -4,6 +4,8 @@ import 'package:sotsuken2/Data/AllObligationData.dart';
 import 'package:sotsuken2/Data/AllRecommendationData.dart';
 import 'package:sotsuken2/Data/AllUserData.dart';
 
+import '../DB/db_provider.dart';
+
 class StateCreateUserCheck extends StatefulWidget{
   const StateCreateUserCheck({super.key});
 
@@ -21,6 +23,8 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
   AllObligationData aod = AllObligationData();
   AllRecommendationData ard = AllRecommendationData();
   AllAnotherData aad = AllAnotherData();
+
+  final dbProvider = DBProvider.instance;
 
 
   @override
@@ -157,7 +161,8 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
                       child:ElevatedButton(
                           child:const Text('登録',style:TextStyle(fontSize:30,fontWeight: FontWeight.bold)),
                           onPressed:(){
-                            AllUserData aud = AllUserData();
+                            _insertUser();
+                            AllUserData aud = AllUserData(username: AllUserData.sUserName);
                             AllObligationData aod = AllObligationData();
                             AllRecommendationData ard = AllRecommendationData();
                             setState(() {
@@ -176,5 +181,12 @@ class CreateUserCheck extends State<StateCreateUserCheck>{
 
       ),
     );
+  }
+  //ユーザの追加処理
+  void _insertUser() async {
+    AllUserData row = AllUserData.newAllUserData();
+    row.username = AllUserData.sUserName;
+    final username = await dbProvider.insertUser(row);
+    print('ユーザ表にinsertしました: $username');
   }
 }

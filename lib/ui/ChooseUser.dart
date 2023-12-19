@@ -39,7 +39,7 @@ class ChooseUser_Page extends State<StateChooseUser>{
     }
     setState(() {
 
-      AllUserData aud = AllUserData();
+      AllUserData aud = AllUserData(username: AllUserData.sUserName);
       int aaa = aud.getUserNames().length;
       debugPrint(aaa.toString());
       valueName1 = "";
