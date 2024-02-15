@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../main.dart';
+
 class Api{
   static List<String> contentList = [""];
   Api._();
@@ -66,16 +68,26 @@ class Api{
     //初期化
     contentList = [""];
 
-    //、を見つけるまでを1要素として配列に格納する
-    if(genStr.contains('、')){
-      contentList = genStr.split('、');
-    }else if(genStr.contains('·')){
-      contentList = genStr.split('·');
-    }else if(genStr.contains('/')){
-      contentList = genStr.split('/');
+    if(Home_Page.flagCategory == 'food'){
+      if(genStr.contains('、')){
+        contentList = genStr.split('、');
+      }else{
+        contentList[0] = genStr;
+      }
     }else{
-      contentList[0] = genStr;
+      if(genStr.contains(',')){
+        contentList = genStr.split(',');
+      }else if(genStr.contains('·')){
+        contentList = genStr.split('·');
+      }else if(genStr.contains('/')){
+        contentList = genStr.split('/');
+      }else{
+        contentList[0] = genStr;
+      }
     }
+
+    //、を見つけるまでを1要素として配列に格納する
+
 
     contentList = contentList.where((element) => element.isNotEmpty).toList();
     
